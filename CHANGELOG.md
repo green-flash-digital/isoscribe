@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.4
+
+Date Released: **02/25/2025**
+
+### 🚀 Added
+
+- Enables the ability to add a message to the `checkpointStart` method
+
 ## v0.1.3
 
 Date Released: **02/25/2025**

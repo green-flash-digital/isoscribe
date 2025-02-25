@@ -136,7 +136,7 @@ describe("Isoscribe", () => {
 
     it("should log checkpoint start", () => {
       logger.logLevel = "debug";
-      logger.checkpointStart();
+      logger.checkpointStart("Feature1");
 
       expect(consoleSpyLog).toHaveBeenCalledWith(
         expect.stringContaining(
