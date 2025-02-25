@@ -9,6 +9,7 @@
   "packageManager": "yarn@4.6.0",
   "scripts": {
     "test": "yarn vitest",
+    "test:ci": "yarn vitest --run",
     "build": "tsc --project ./tsconfig.build.json"
   },
   "repository": {
