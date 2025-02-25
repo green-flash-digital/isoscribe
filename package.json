@@ -1,24 +1,19 @@
 {
   "name": "isoscribe",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An isomorphic logging utility for any JavaScript runtime, providing structured, styled, and extensible logs.",
   "type": "module",
+  "sideEffects": false,
   "exports": {
     ".": "./dist/index.js"
   },
-  "keywords": [
-    "logging",
-    "logger",
-    "isomorphic",
-    "browser",
-    "nodejs",
-    "structured-logging",
-    "debugging",
-    "log-utility"
-  ],
   "packageManager": "yarn@4.6.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "yarn vitest",
+    "test:ci": "yarn vitest --run",
     "build": "tsc --project ./tsconfig.build.json"
   },
   "repository": {
@@ -39,5 +34,54 @@
     "@vitest/coverage-v8": "3.0.7",
     "typescript": "^5.7.3",
     "vitest": "^3.0.7"
-  }
+  },
+  "keywords": [
+    "isoscribe",
+    "logging",
+    "log",
+    "logger",
+    "isomorphic",
+    "isomorphic-logging",
+    "fullstack-logging",
+    "structured-logging",
+    "styled-logging",
+    "extensible-logging",
+    "universal-logging",
+    "cross-platform-logging",
+    "frontend-logging",
+    "backend-logging",
+    "node-logging",
+    "browser-logging",
+    "console-logging",
+    "log-utility",
+    "logging-framework",
+    "log-management",
+    "javascript-logging",
+    "typescript-logging",
+    "log-levels",
+    "log-filtering",
+    "log-formatting",
+    "log-transport",
+    "log-handler",
+    "log-styling",
+    "console-styling",
+    "developer-tooling",
+    "diagnostics",
+    "observability",
+    "monitoring",
+    "structured-debugging",
+    "cloud-logging",
+    "runtime-logging",
+    "log-enhancement",
+    "log-middleware",
+    "universal-debugging",
+    "error-logging",
+    "debugging-tool",
+    "frontend-debugging",
+    "backend-debugging",
+    "log-analysis",
+    "performance-logging",
+    "dev-tools",
+    "greenflash-digital"
+  ]
 }
