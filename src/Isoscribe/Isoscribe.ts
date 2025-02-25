@@ -300,8 +300,8 @@ ${c.gray((error.stack ?? "").replace(`Error: ${error.message}\n`, ""))}`
   watch(message: string, ...data: any[]) {
     this.log({ level: "info", action: "watch", message }, ...data);
   }
-  checkpointStart() {
-    this.log({ level: "debug", action: "checkpoint:start", message: "-- --" });
+  checkpointStart(message: string) {
+    this.log({ level: "debug", action: "checkpoint:start", message });
   }
   checkpointEnd() {
     this.log({ level: "debug", action: "checkpoint:end", message: "-- --" });
