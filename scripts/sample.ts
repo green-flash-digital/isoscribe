@@ -7,6 +7,8 @@ const LOG_SANDBOX = new Isoscribe({
 
 function runSandbox() {
   LOG_SANDBOX.logLevel = "debug";
+
+  LOG_SANDBOX.checkpointStart("Sandbox");
   LOG_SANDBOX.debug("This is a debug message");
   LOG_SANDBOX.debug("This is a debug message with content", {
     test: "hello",
@@ -28,6 +30,7 @@ function runSandbox() {
     test: "hello",
   });
   LOG_SANDBOX.fatal(new Error("This is a fatal message"));
+  LOG_SANDBOX.checkpointEnd();
 }
 
 runSandbox();
