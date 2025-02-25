@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.1.2
+
+Date Released: **02/25/2025**
+
+### 🚀 Added
+
+- Adds a utils folder that exports various logging utils
+- Adds a `printsAsBullets` util that will format an array of string into a bulleted list
+
+### 🐛 Fixed
+
+- All log levels are now correctly padded with the same number of characters
+- Fixes the bug where the feature name wasn't being printed
+
 ## v0.1.1
 
 Date Released: **02/25/2025**
@@ -12,6 +26,6 @@ Date Released: **02/25/2025**
 
 Date Released: **02/25/2025**
 
-### 🐛 Added
+### 🚀 Added
 
 - Bootstraps the library with tests, releases, CI/CD scripts etc...

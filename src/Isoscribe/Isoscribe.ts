@@ -83,7 +83,7 @@ export class Isoscribe {
     this._logFormat = args.logFormat ?? "string";
     this._logName = args.name;
     this._logLevelNameMaxLen = Math.max(
-      ...Object.keys(LOG_LEVEL_PRIORITY).map((l) => l.length)
+      ...Object.keys(LOG_LEVEL_PRIORITY).map((l) => `[${l}]`.length)
     );
     this._logPill = {
       text: this._logName,
@@ -232,22 +232,29 @@ export class Isoscribe {
       }
 
       case "server-string": {
-        const logTimestamp = this.getLogTimestamp({ format: "hh:mm:ss AM/PM" });
+        const logTimestamp = c.gray(
+          this.getLogTimestamp({ format: "hh:mm:ss AM/PM" })
+        );
+        const logFeature = this._logName;
         const logAction = action ? LOG_ACTION[action] : "";
         const logMessage = c.gray(message);
-        const logLevelName = this.getLogLevelName(level, {
-          setWidth: true,
-        });
-        logger(`${logTimestamp} [${logLevelName}] ${logAction} ${logMessage}`);
+        const logLevelName = this.getLogLevelName(level, { setWidth: true });
+        const logStr = `${logTimestamp} ${logLevelName.name} ${logFeature} ${logAction} ${logMessage}`;
+        if (data.length === 0) {
+          return logger(logStr);
+        }
+        logger(logStr, data);
         break;
       }
 
       case "browser-json":
       case "server-json": {
         const logTimestamp = this.getLogTimestamp({ format: "iso" });
+        const logFeature = this._logName;
         logger(
           JSON.stringify({
             timestamp: logTimestamp,
+            feature: logFeature,
             level,
             message,
             data,

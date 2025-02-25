@@ -1,6 +1,6 @@
 {
   "name": "isoscribe",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An isomorphic logging utility for any JavaScript runtime, providing structured, styled, and extensible logs.",
   "type": "module",
   "sideEffects": false,
@@ -17,6 +17,7 @@
   "scripts": {
     "test": "yarn vitest",
     "test:ci": "yarn vitest --run",
+    "preview": "yarn tsx ./scripts/sample.ts",
     "build": "tsc --project ./tsconfig.build.json"
   },
   "repository": {
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@types/node": "^22.13.5",
     "@vitest/coverage-v8": "3.0.7",
+    "tsx": "^4.19.3",
     "typescript": "^5.7.3",
     "vitest": "^3.0.7"
   },
