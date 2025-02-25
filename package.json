@@ -1,12 +1,16 @@
 {
   "name": "isoscribe",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An isomorphic logging utility for any JavaScript runtime, providing structured, styled, and extensible logs.",
   "type": "module",
+  "sideEffects": false,
   "exports": {
     ".": "./dist/index.js"
   },
   "packageManager": "yarn@4.6.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "yarn vitest",
     "test:ci": "yarn vitest --run",
