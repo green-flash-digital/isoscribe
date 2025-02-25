@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.3
+
+Date Released: **02/25/2025**
+
+### 🐛 Fixed
+
+- Fixes an issue where all directories are being built instead of just the `src`
+
 ## v0.1.2
 
 Date Released: **02/25/2025**
