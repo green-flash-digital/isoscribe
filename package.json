@@ -1,92 +1,37 @@
 {
-  "name": "isoscribe",
-  "version": "0.1.4",
-  "description": "An isomorphic logging utility for any JavaScript runtime, providing structured, styled, and extensible logs.",
-  "type": "module",
-  "sideEffects": false,
-  "exports": {
-    ".": "./dist/index.js"
+  "name": "@green-flash/isoscribe",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "./packages/*"
+    ]
   },
-  "files": [
-    "dist"
-  ],
-  "packageManager": "yarn@4.6.0",
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "yarn vitest",
-    "test:ci": "yarn vitest --run",
-    "preview": "yarn tsx ./scripts/sample.ts",
-    "build": "tsc --project ./tsconfig.build.json"
-  },
+  "packageManager": "yarn@4.9.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/green-flash-digital/isoscribe.git"
   },
   "author": "Drew DeCarme (drew@greenflash.digital)",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/green-flash-digital/isoscribe/issues"
   },
   "homepage": "https://github.com/green-flash-digital/isoscribe#readme",
-  "dependencies": {
-    "ts-jolt": "^0.2.1"
+  "scripts": {
+    "build": "yarn turbo build",
+    "release": "npx changeset publish",
+    "test": "yarn vitest --run",
+    "lint": "eslint src --fix"
   },
   "devDependencies": {
-    "@types/node": "^22.13.5",
-    "@vitest/coverage-v8": "3.0.7",
-    "tsx": "^4.19.3",
-    "typescript": "^5.7.3",
-    "vitest": "^3.0.7"
-  },
-  "keywords": [
-    "isoscribe",
-    "logging",
-    "log",
-    "logger",
-    "isomorphic",
-    "isomorphic-logging",
-    "fullstack-logging",
-    "structured-logging",
-    "styled-logging",
-    "extensible-logging",
-    "universal-logging",
-    "cross-platform-logging",
-    "frontend-logging",
-    "backend-logging",
-    "node-logging",
-    "browser-logging",
-    "console-logging",
-    "log-utility",
-    "logging-framework",
-    "log-management",
-    "javascript-logging",
-    "typescript-logging",
-    "log-levels",
-    "log-filtering",
-    "log-formatting",
-    "log-transport",
-    "log-handler",
-    "log-styling",
-    "console-styling",
-    "developer-tooling",
-    "diagnostics",
-    "observability",
-    "monitoring",
-    "structured-debugging",
-    "cloud-logging",
-    "runtime-logging",
-    "log-enhancement",
-    "log-middleware",
-    "universal-debugging",
-    "error-logging",
-    "debugging-tool",
-    "frontend-debugging",
-    "backend-debugging",
-    "log-analysis",
-    "performance-logging",
-    "dev-tools",
-    "greenflash-digital"
-  ]
+    "@changesets/cli": "^2.29.3",
+    "@gfdigital/eslint-config": "0.4.3",
+    "@gfdigital/tsconfig": "^0.3.1",
+    "@types/node": "^22.15.17",
+    "eslint": "^9.26.0",
+    "turbo": "^2.5.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3"
+  }
 }

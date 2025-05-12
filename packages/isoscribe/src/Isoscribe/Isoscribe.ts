@@ -89,11 +89,28 @@ export class Isoscribe {
       text: this._logName,
       css: this.getLogPillCss(args.pillColor ?? "#55daf0"),
     };
+    this._registerToWindow();
+  }
+
+  private _registerToWindow() {
+    if (typeof window === "undefined") return;
+    if (!window.__ISOSCRIBE__) {
+      window.__ISOSCRIBE__ = {};
+    }
+    window.__ISOSCRIBE__[this._logName] = this;
+  }
+
+  set logLevel(level: IsoScribeLogLevel) {
+    this._logLevel = level;
   }
 
   /** Set log level dynamically */
-  set logLevel(level: IsoScribeLogLevel) {
+  setLogLevel(level: IsoScribeLogLevel) {
     this._logLevel = level;
+  }
+
+  getLogLevel() {
+    return this._logLevel;
   }
 
   private shouldLog(level: IsoScribeLogLevel): boolean {
@@ -113,19 +130,22 @@ export class Isoscribe {
   private getLogPillCss(bgColor: string) {
     const rgb = Number.parseInt(bgColor.slice(1), 16);
     const [r, g, b] = [(rgb >> 16) & 0xff, (rgb >> 8) & 0xff, rgb & 0xff];
-    const luminance = (ch: number) =>
-      ch / 255 <= 0.03928 ? ch / 12.92 : ((ch + 0.055) / 1.055) ** 2.4;
-    const textColor =
-      0.2126 * luminance(r) + 0.7152 * luminance(g) + 0.0722 * luminance(b) >
-      0.179
-        ? "#000"
-        : "#fff";
+
+    const luminance = (ch: number) => {
+      const c = ch / 255;
+      return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+    };
+    const lum =
+      0.2126 * luminance(r) + 0.7152 * luminance(g) + 0.0722 * luminance(b);
+
+    const textColor = lum > 0.179 ? "#000" : "#fff";
 
     const styles = {
       background: bgColor,
       color: textColor,
       ["font-weight"]: "bold",
       padding: "2px 6px",
+      "margin-right": "4px",
       "border-radius": "4px",
     };
     const css = Object.entries(styles)
@@ -217,14 +237,12 @@ export class Isoscribe {
         const logPill = this._logPill;
         const logLevelName = this.getLogLevelName(level, { setWidth: true });
         const logTimestamp = this.getLogTimestamp({ format: "hh:mm:ss AM/PM" });
-        const logMessage = c.gray(message);
-        const logAction = action ? LOG_ACTION[action] : "";
+        const logMessage = message;
 
         logger(
-          `${logTimestamp} %c${logPill.text}, %c${logLevelName.name}`,
+          `${logTimestamp} %c${logPill.text}%c${logLevelName.name}`,
           logPill.css,
           logLevelName.css,
-          logAction,
           logMessage,
           ...data
         );
