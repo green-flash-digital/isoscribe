@@ -1,6 +1,6 @@
 {
   "name": "isoscribe",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "An isomorphic logging utility for any JavaScript runtime, providing structured, styled, and extensible logs.",
   "type": "module",
   "sideEffects": false,
