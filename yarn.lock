@@ -3525,7 +3525,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^5.2.0"
     eslint-plugin-react-refresh: "npm:^0.4.19"
     globals: "npm:^16.0.0"
-    isoscribe: "npm:0.1.4"
+    isoscribe: "npm:0.2.0"
     react: "npm:^19.1.0"
     react-dom: "npm:^19.1.0"
     typescript: "npm:~5.8.3"
@@ -4461,7 +4461,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"isoscribe@npm:0.1.4, isoscribe@workspace:packages/isoscribe":
+"isoscribe@npm:0.2.0, isoscribe@workspace:packages/isoscribe":
   version: 0.0.0-use.local
   resolution: "isoscribe@workspace:packages/isoscribe"
   dependencies:

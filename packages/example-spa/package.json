@@ -1,7 +1,7 @@
 {
   "name": "example-spa",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "isoscribe": "0.1.4",
+    "isoscribe": "0.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
